@@ -2,7 +2,7 @@ class HomesController < ApplicationController
 
 before_action :set_home, only: [:show, :edit, :update]
   # User must be authneticated before every controller action, except for show
-  #before_action :authenticate_user!, except: [:show, :home ]
+  before_action :authenticate_user!, except: [:show, :index ]
 
   def new
     @home = Home.new
@@ -62,8 +62,16 @@ before_action :set_home, only: [:show, :edit, :update]
   def edit
      @home_photos = @home.home_photos
   end
+  
+  def destroy
+    @home = Home.find(params[:id])
+    @home.destroy
 
-
+    respond_to do |format|
+      format.html { redirect_to homes_path }
+     # format.json { head :no_content }
+    end
+ end
 
   private
   def set_home

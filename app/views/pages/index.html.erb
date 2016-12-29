@@ -1,0 +1,4 @@
+<%= form_tag(:url => {:controller => "pages", :action => "index"}, :method => "get") do %>
+   <%= select_tag(:type, Home::TYPES,  {:include_blank => true}) %>
+   <%= submit_tag "Search", :id => 'search' %>
+<% end %>

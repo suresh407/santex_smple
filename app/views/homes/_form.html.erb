@@ -66,6 +66,14 @@
     </div>
   </div>
 
+ <div class="control-group">
+    <%= f.label :floorplan_images, :class => 'control-label' %>
+    <div class="controls">
+      
+      <%= file_field_tag "floorplan_images[]", type: :file, multiple: true %>
+    </div>
+  </div>
+
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
