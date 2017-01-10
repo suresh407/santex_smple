@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
  # get 'home_info_enquiries/create'
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations"}
  #get 'home' => 'pages#home' 
 # match "pages/:id", to: "homepage#home", as: "home_page"
 # get 'search' => 'pages#search'
