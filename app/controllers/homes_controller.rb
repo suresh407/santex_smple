@@ -10,8 +10,14 @@ before_action :set_home, only: [:show, :edit, :update]
 
   def show
    # @messages = @conversation.messages.find(params[:conversation_id])
+    
     @home_photos = @home.home_photos
+#    render text: @home.to_yaml and return    
+#    @home_info_enquery = HomeInfoEnquery.new
+       @enquery = HomeInfoEnquery.new
 
+    # @enquery = HomeInfoEnquery.where("home_id = ?",@home.id).present?
+   
    # @booked = Reservation.where("listing_id = ? AND user_id =?",@listing.id,current_user.id).present? if current_user
 
    # @reviews= @listing.reviews

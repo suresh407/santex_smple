@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161229090928) do
+ActiveRecord::Schema.define(version: 20170110045403) do
 
   create_table "contact_pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "first_name"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20161229090928) do
     t.string   "assist_you"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "home_info_enqueries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "home_id"
   end
 
   create_table "home_photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -53,6 +63,13 @@ ActiveRecord::Schema.define(version: 20161229090928) do
     t.text     "other",           limit: 65535
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.float    "price",           limit: 24
+  end
+
+  create_table "pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "select_home"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

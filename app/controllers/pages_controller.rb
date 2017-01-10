@@ -10,11 +10,38 @@ class PagesController < ApplicationController
 
   end
 
+  def new
 
-
- def search
- @homes = Home.all
+  @select_home = Page.new
  
+   end  
+ def search
+ home  = params[:select_home]
+# render text: home.to_yaml and return
+if home == "Single wide"
+@single_wide = Home.single_wide
+render :text => "single wide"
+end
+if home == "Double wide"
+@double_wide = Home.double
+render :text => "double wide"
+end
+if home == "Triple wide"
+@triple_wide = Home.triple
+render :text => "triple wide"
+end
+if home == "Hot deals"
+@hotdeals = Home.hotdeals
+render :text => "hot deals"
+end
+
+
+ 
+#<% concat "non single wide" %>
+#render :text => "Not OK"
+
+ #@homes = Home.all
+# render text: "no".to_yaml and return
 
  end 
 
@@ -55,7 +82,10 @@ end
 
 
 
-
+private
+  def select_home_params
+    params.require(:select_home).permit( :select_home)
+end
 
 
 
